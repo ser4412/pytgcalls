@@ -81,6 +81,7 @@ export class FFmpegReader {
         this.total_size += chunk.length;
         this.bytes_read.push(chunk);
         if(this.bytes_read.length >= this.MAX_SIZE_BUFFERED){
+            console.log("ppppppppp 11");
             this.fifo_reader?.stdout.pause();
         }
     });
@@ -93,6 +94,7 @@ export class FFmpegReader {
             return;
         }
         if(!this.paused){
+            console.log("ppppppppp 11");
             if(this.bytes_read.length > 0){
                 if(this.bytes_read.length < this.MAX_SIZE_BUFFERED){
                     this.fifo_reader?.stdout.resume();
